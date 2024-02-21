@@ -2,17 +2,11 @@
 import "./Counter.css"
 import PropTypes from 'prop-types'
 export default function  CounterButton({by,incrementMethod,decrementMethod}) {
-     function incrementCounter(){
- incrementMethod(by)
-     }
-     function decrementCounter(){
- decrementMethod(by)
-     }
    return (
      <div className='Counter'>
          <div>
-         <button className='counterButton' onClick={incrementCounter}>+{by}</button>
-         <button className='counterButton' onClick={decrementCounter}>-{by}</button>
+         <button className='counterButton' onClick={()=>incrementMethod(by)}>+{by}</button>
+         <button className='counterButton' onClick={()=>decrementMethod(by)}>-{by}</button>
          </div>
      </div>
    )

@@ -11,7 +11,9 @@ function Counter(){
     function decrementCounterParentFunction(by){
         setCounter(count-by)
     }
- 
+ function resetButton(){
+    setCounter(0)
+ }
     return (
         <>
        
@@ -20,7 +22,8 @@ function Counter(){
    <CounterButton  by={5} incrementMethod={incrementCounterParentFunction} decrementMethod={decrementCounterParentFunction}/>
    <span className='totalCount'>
            {count}
-        </span>
+        </span><br/>
+        <button className='resetButton' onClick={resetButton}>Reset</button>
         </>
     )
 }
