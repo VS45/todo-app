@@ -2,10 +2,8 @@ import { Link} from "react-router-dom";
 import { useAuth } from "./security/AuthContext";
 
 export default function HeaderComponent(){
-    const {isAuthenticated,setAuthenticated}=useAuth();
-    function logOut(){
-        setAuthenticated(false);
-    }
+    const {isAuthenticated,logOut}=useAuth();
+    
     return (
      
         <header className="border-bottom border-light border-5 mb-5 p-2">
