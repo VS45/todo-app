@@ -16,8 +16,8 @@ const navigate=useNavigate();
 setPassword(e.target.value)
     }
     
-    function handleSubmit(){
-        const isLoggedIn=login(username,password);
+  async  function handleSubmit(){
+     const isLoggedIn=await login(username,password);
         if(isLoggedIn){
             navigate(`/welcome/${username}`)
         }else{

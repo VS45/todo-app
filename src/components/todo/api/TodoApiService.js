@@ -1,34 +1,10 @@
-import axios from "axios"
+import { apiClient } from "./apiClient";
 
-const apiClient=axios.create({
-    baseURL:'http://localhost:8080'
-})
-export const retrieveAllTodosForUsernameApi=(username,token)=>apiClient.get(`/users/${username}/todos`,{
-    headers:{
-        Authorization:token
-    }
-});
-export const deleteTodoApi=(username,id,token)=>apiClient.delete(`/users/${username}/todos/${id}`,{
-    headers:{
-        Authorization:token
-    }
-});
+export const retrieveAllTodosForUsernameApi=(username,token)=>apiClient.get(`/users/${username}/todos`);
+export const deleteTodoApi=(username,id)=>apiClient.delete(`/users/${username}/todos/${id}`);
 export const retrieveTodoApi
-=(username,id,token)=>apiClient.get(`/users/${username}/todos/${id}`,{
-    headers:{
-        Authorization:token
-    }
-});
+=(username,id)=>apiClient.get(`/users/${username}/todos/${id}`);
 export const updateTodoApi
-=(username,id,todo,token)=>apiClient.put(`/users/${username}/todos/${id}`,todo,{
-    headers:{
-        Authorization:token
-    }
-});
+=(username,id,todo)=>apiClient.put(`/users/${username}/todos/${id}`);
 export const addTodoApi
-=(username,todo,token)=>apiClient.post(`/users/${username}/todos`,todo,{
-    headers:{
-        Authorization:token
-    }
-});
-///users/{username}/todos/{id}
+=(username,todo)=>apiClient.post(`/users/${username}/todos`,todo);

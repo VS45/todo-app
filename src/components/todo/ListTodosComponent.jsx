@@ -8,7 +8,7 @@ export default function ListTodoComponent(){
 const {username,token}=useAuth();
 const navigate=useNavigate();
  function refreshTodos(){
-    retrieveAllTodosForUsernameApi(username,token)
+    retrieveAllTodosForUsernameApi(username)
     .then((response)=>successResponse(response))
     .catch((err)=>errorResponse(err))
     .finally(()=>console.log('Clean up'))
@@ -22,7 +22,7 @@ function errorResponse(error){
 }
 function deleteTodo(id){
     console.log('delete Todo',id);
-    deleteTodoApi(username,id,token)
+    deleteTodoApi(username,id)
     .then(()=>{
 refreshTodos();
 setMessage('Successfully Deleted')

@@ -12,7 +12,7 @@ export default function TodoComponent(){
    const [targetDate,setTargetDate]=useState('');
    const navigate=useNavigate()
     function retrieveTodoDetails(){
-        retrieveTodoApi(username,id,token)
+        retrieveTodoApi(username,id)
         .then(({data})=>{
             setDescription(data.description)
             setTargetDate(data.targetDate)
@@ -22,13 +22,13 @@ export default function TodoComponent(){
     }
     function onSubmit(values){
 console.log(values)
-if(id!=-1){
-    updateTodoApi(username,id,values,token)
+if(id!==-1){
+    updateTodoApi(username,id,values)
     .then(({data})=>navigate('/todos'))
     .catch((error)=>console.log(error))
     .finally(()=>console.log('Finally'))
 }else{
-    addTodoApi(username,values,token) 
+    addTodoApi(username,values) 
     .then(({data})=>navigate('/todos'))
     .catch((error)=>console.log(error))
     .finally(()=>console.log('Finally')) 
@@ -49,7 +49,7 @@ console.log("validation: ",values)
 return errors
     }
     useEffect(()=>{
-        if(id!=-1){
+        if(id!==-1){
             retrieveTodoDetails()
         }
     },[id])
