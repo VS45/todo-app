@@ -49,7 +49,7 @@ const TodoApp = () => {
    }/>
 <Route path='*' element={  <ErrorComponent/>}></Route>
         </Routes>
-        </BrowserRouter>
+        </BrowserRouter> 
         </AuthProvider>
         </div>
   )
